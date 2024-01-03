@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:ToDoListApp"
         mc:Ignorable="d"
         Title="Task List" Height="450" Width="800">
-    <Grid Margin="0,0,0,-16">
+    <Grid Background="#FF36454F" Margin="0,0,0,-31">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="dateText" Margin="80,10,80,0" TextWrapping="Wrap" Text="Date" FontSize="36" TextAlignment="Center" Height="84" VerticalAlignment="Top"/>
+        <TextBlock x:Name="dateText" Margin="80,10,80,0" TextWrapping="Wrap" Text="Date" FontSize="36" TextAlignment="Center" Height="84" VerticalAlignment="Top" Foreground="White"/>
 
-        <ListBox Name="TaskList" Margin="40,122,20,206" ItemsSource="{Binding tasks}" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListBox Name="TaskList" Margin="40,122,20,206" ItemsSource="{Binding tasks}" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" d:ItemsSource="{d:SampleData ItemCount=5}">
             <!-- Because CheckBox indicates selection, hide standard ListBox -->
             <!-- selection behavior -->
             <ListBox.ItemContainerStyle>
@@ -27,15 +27,15 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding Completed}" Checked="Task_Checked"/>
-                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="200"/>
+                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="200" Background="#FF36454F" Foreground="White"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button x:Name="AddButton" Click="AddButton_Click" Content="+" Margin="725,243,0,0" RenderTransformOrigin="0.5,0.501" HorizontalAlignment="Left" Width="35" Height="36" VerticalAlignment="Top"/>
+        <Button x:Name="AddButton" Click="AddButton_Click" Content="+" Margin="40,0,0,348" RenderTransformOrigin="0.444,1.638" BorderBrush="#FF5F5D5D" Background="#FF36454F" Foreground="White" FontSize="18" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="36"/>
 
-        <ListBox Name="CompletedTaskList" ItemsSource="{Binding CompletedTasks}" Margin="40,284,20,48" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListBox Name="CompletedTaskList" ItemsSource="{Binding CompletedTasks}" Margin="40,298,20,34" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D">
             <!-- Because CheckBox indicates selection, hide standard ListBox -->
             <!-- selection behavior -->
             <ListBox.ItemContainerStyle>
@@ -48,11 +48,11 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding Completed}" Checked="Task_Checked" Unchecked="Task_UnChecked"/>
-                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="200"/>
+                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="200" TextDecorations="Strikethrough" Background="#FF36454F" Foreground="White"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock HorizontalAlignment="Left" Margin="40,263,0,0" TextWrapping="Wrap" Text="Completed" VerticalAlignment="Top"/>
+        <TextBlock Margin="40,282,0,0" TextWrapping="Wrap" Text="Completed" Foreground="White" HorizontalAlignment="Left" Width="105" Height="31" VerticalAlignment="Top"/>
     </Grid>
 </Window>

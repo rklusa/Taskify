@@ -26,7 +26,7 @@ namespace ToDoListApp
 
         public void CompleteTask()
         {
-            foreach (Task t in tasks.ToList()) // tasks.ToList() is not the ideal solution
+            foreach (Task t in tasks.ToList()) // .ToList() is not the ideal solution
             {
                 if (t.Completed)
                 {
@@ -38,7 +38,7 @@ namespace ToDoListApp
 
         public void UnCompleteTask()
         {
-            foreach (Task t in completedTasks.ToList()) // tasks.ToList() is not the ideal solution
+            foreach (Task t in completedTasks.ToList()) // .ToList() is not the ideal solution
             {
                 if (!t.Completed)
                 {
