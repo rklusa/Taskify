@@ -28,10 +28,10 @@ namespace ToDoListApp
         {
             foreach (Task t in tasks.ToList()) // .ToList() is not the ideal solution
             {
-                if (t.Completed)
+                if (t.Completed == true)
                 {
-                    tasks.Remove(t);
                     completedTasks.Add(t);
+                    tasks.Remove(t);
                 }
             }
         }
@@ -40,10 +40,10 @@ namespace ToDoListApp
         {
             foreach (Task t in completedTasks.ToList()) // .ToList() is not the ideal solution
             {
-                if (!t.Completed)
+                if (t.Completed == false)
                 {
-                    completedTasks.Remove(t);
                     tasks.Add(t);
+                    completedTasks.Remove(t);
                 }
             }
         }

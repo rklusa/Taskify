@@ -28,7 +28,7 @@ namespace ToDoListApp
             InitializeComponent();
 
             dateText.Text = user.GetDate();
-            user.tasks.Add(new Task() { Title = "fart", Completed = false });
+            //user.tasks.Add(new Task() { Title = "fart", Completed = false });
             TaskList.ItemsSource = user.tasks;
             CompletedTaskList.ItemsSource = user.completedTasks;
         }
