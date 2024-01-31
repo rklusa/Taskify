@@ -33,7 +33,7 @@
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding Completed}" Checked="Task_Checked"/>
                         <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="200" Background="#FF36454F" Foreground="White"/>
-                        <Button Content="X" Background="#FF36454F" Foreground="White"/>
+                        <Button Content="X" Background="#FF36454F" Foreground="White" Click="Delete_Task"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -55,7 +55,7 @@
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding Completed}" Checked="Task_Checked" Unchecked="Task_UnChecked"/>
                         <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Width="200" TextDecorations="Strikethrough" Background="#FF36454F" Foreground="White"/>
-                        <Button Content="X" Background="#FF36454F" Foreground="White"/>
+                        <Button Content="X" Background="#FF36454F" Foreground="White" Click="Delete_Completed_Task"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

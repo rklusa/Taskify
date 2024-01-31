@@ -21,7 +21,7 @@ namespace ToDoListApp
 
         public void AddTask(string title)
         {
-            tasks.Add(new Task() { Title =  title, Completed = false });
+            tasks.Add(new Task() { Title = title, Completed = false});
         }
 
         public void CompleteTask()
@@ -46,6 +46,16 @@ namespace ToDoListApp
                     completedTasks.Remove(t);
                 }
             }
+        }
+
+        public void DeleteTask(int index)
+        {
+            tasks.RemoveAt(index);
+        }
+
+        public void DeleteCompletedTask(int index) 
+        {
+            completedTasks.RemoveAt(index);
         }
     }
 }

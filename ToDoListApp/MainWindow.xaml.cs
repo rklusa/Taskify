@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,10 +52,32 @@ namespace ToDoListApp
             RefreshTasks();
         }
 
+        private void Delete_Task(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            int index = TaskList.Items.IndexOf(button.DataContext);
+            Trace.WriteLine(index);
+
+            user.DeleteTask(index);
+            RefreshTasks();
+        }
+
+        private void Delete_Completed_Task(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            int index = CompletedTaskList.Items.IndexOf(button.DataContext);
+            Trace.WriteLine(index);
+
+            user.DeleteCompletedTask(index);
+            RefreshTasks();
+        }
+
         private void RefreshTasks()
         {
             TaskList.Items.Refresh();
             CompletedTaskList.Items.Refresh();
         }
+
+        
     }
 }
