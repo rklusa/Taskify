@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,15 @@ namespace ToDoListApp
     public partial class MainWindow : Window
     {
         User user = new User();
+        DataSerializer serializer = new DataSerializer();
 
         public MainWindow()
         {
             InitializeComponent();
 
             dateText.Text = user.GetDate();
+            user.tasks = serializer.LoadData();
+            LoadData();
             //user.tasks.Add(new Task() { Title = "fart", Completed = false });
             TaskList.ItemsSource = user.tasks;
             CompletedTaskList.ItemsSource = user.completedTasks;
@@ -76,6 +80,20 @@ namespace ToDoListApp
         {
             TaskList.Items.Refresh();
             CompletedTaskList.Items.Refresh();
+            serializer.CopyData(user.tasks, user.completedTasks);
+            serializer.SaveData();
+        }
+
+        private void LoadData()
+        {
+            foreach (Task t in user.tasks.ToList()) // .ToList() is not the ideal solution
+            {
+                if (t.Completed == true)
+                {
+                    user.completedTasks.Add(t);
+                    user.tasks.Remove(t);
+                }
+            }
         }
 
         
