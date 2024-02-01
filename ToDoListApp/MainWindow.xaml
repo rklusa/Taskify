@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:ToDoListApp"
         mc:Ignorable="d"
         Title="Task List" Height="450" Width="800">
-    <Grid Background="#FF36454F" Margin="0,0,0,-31">
+    <Grid Background="#FF36454F" Margin="0,0,0,-136">
         <Grid.RowDefinitions>
-            <RowDefinition Height="274*"/>
-            <RowDefinition Height="191*"/>
+            <RowDefinition Height="289*"/>
+            <RowDefinition Height="291*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,9 +17,9 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="dateText" Margin="80,10,30,0" TextWrapping="Wrap" Text="Date" FontSize="36" TextAlignment="Center" Height="84" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="dateText" Margin="55,20,55,0" TextWrapping="Wrap" Text="Date" FontSize="36" TextAlignment="Center" Height="84" VerticalAlignment="Top" Foreground="White"/>
 
-        <ListBox Name="TaskList" Margin="40,114,0,0" ItemsSource="{Binding tasks}" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" d:ItemsSource="{d:SampleData ItemCount=5}" Height="137" VerticalAlignment="Top" HorizontalAlignment="Left" Width="740">
+        <ListBox Name="TaskList" Margin="40,114,0,44" ItemsSource="{Binding tasks}" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="740">
             <!-- Because CheckBox indicates selection, hide standard ListBox -->
             <!-- selection behavior -->
             <ListBox.ItemContainerStyle>
@@ -41,7 +41,7 @@
 
         <Button x:Name="AddButton" Click="AddButton_Click" Content="+" Margin="40,69,0,0" RenderTransformOrigin="0.444,1.638" BorderBrush="#FF5F5D5D" Background="#FF36454F" Foreground="White" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36"/>
 
-        <ListBox Name="CompletedTaskList" ItemsSource="{Binding CompletedTasks}" Margin="40,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" Height="133" VerticalAlignment="Center" HorizontalAlignment="Left" Width="740" Grid.Row="1">
+        <ListBox Name="CompletedTaskList" ItemsSource="{Binding CompletedTasks}" Margin="40,0,0,44" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="740" Height="133">
             <!-- Because CheckBox indicates selection, hide standard ListBox -->
             <!-- selection behavior -->
             <ListBox.ItemContainerStyle>

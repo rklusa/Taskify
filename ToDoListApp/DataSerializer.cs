@@ -23,13 +23,14 @@ namespace ToDoListApp
 
         public void CopyData(List<Task> tasks, List<Task> completedTasks)
         {
-            data = new List<Task>(tasks); // not a deep copy of the list may not work
+            data = new List<Task>(tasks);
             data.AddRange(completedTasks);
         }
 
         public void SaveData()
         {
-            string json = JsonSerializer.Serialize(data);
+            var formatting = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(data, formatting);
             File.WriteAllText(fileName, json);
         }
 
