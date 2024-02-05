@@ -5,29 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoListApp"
         mc:Ignorable="d"
-        Title="Task List" Height="450" Width="800">
-    <Grid Background="#FF36454F" Margin="0,0,0,-136">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="289*"/>
-            <RowDefinition Height="291*"/>
-        </Grid.RowDefinitions>
+        Title="Task List" Height="450" Width="800"
+        SizeToContent="WidthAndHeight" >
+    <Grid Background="#FF36454F">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="dateText" Margin="55,20,55,0" TextWrapping="Wrap" Text="Date" FontSize="36" TextAlignment="Center" Height="84" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="dateText" Margin="50,2,0,0" Text="Date" FontSize="36" Height="84" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="670"/>
 
-        <ListBox Name="TaskList" Margin="40,114,0,44" ItemsSource="{Binding tasks}" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="740">
+        <Button x:Name="AddButton" Click="AddButton_Click" Content="+" Margin="50,69,0,0" RenderTransformOrigin="0.444,1.638" BorderBrush="#FF5F5D5D" Background="#FF36454F" Foreground="White" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36"/>
+
+        <TextBlock Margin="50,374,0,0" TextWrapping="Wrap" Text="Completed" Foreground="White" HorizontalAlignment="Left" Width="105" Height="17" VerticalAlignment="Top"/>
+
+        <TextBlock Margin="50,114,0,0" TextWrapping="Wrap" Text="Tasks" Foreground="White" HorizontalAlignment="Left" Width="105" Height="17" VerticalAlignment="Top"/>
+
+
+        <ListBox x:Name="TaskList" Margin="50,136,50,0" ItemsSource="{Binding tasks}" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" Height="208" VerticalAlignment="Top">
             <!-- Because CheckBox indicates selection, hide standard ListBox -->
             <!-- selection behavior -->
             <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
+                <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="Focusable" Value="False"/>
                 </Style>
             </ListBox.ItemContainerStyle>
-            <!-- Each item in list is a CheckBox -->
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -39,9 +42,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button x:Name="AddButton" Click="AddButton_Click" Content="+" Margin="40,69,0,0" RenderTransformOrigin="0.444,1.638" BorderBrush="#FF5F5D5D" Background="#FF36454F" Foreground="White" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36"/>
-
-        <ListBox Name="CompletedTaskList" ItemsSource="{Binding CompletedTasks}" Margin="40,0,0,44" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="740" Height="133">
+        <ListBox x:Name="CompletedTaskList" ItemsSource="{Binding CompletedTasks}" Margin="50,396,50,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="#FF36454F" BorderBrush="#FF5F5D5D" Height="250" VerticalAlignment="Top">
             <!-- Because CheckBox indicates selection, hide standard ListBox -->
             <!-- selection behavior -->
             <ListBox.ItemContainerStyle>
@@ -49,7 +50,6 @@
                     <Setter Property="Focusable" Value="False"/>
                 </Style>
             </ListBox.ItemContainerStyle>
-            <!-- Each item in list is a CheckBox -->
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -60,6 +60,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Margin="40,2,0,0" TextWrapping="Wrap" Text="Completed" Foreground="White" HorizontalAlignment="Left" Width="105" Height="17" VerticalAlignment="Top" Grid.Row="1"/>
     </Grid>
 </Window>
